@@ -1,0 +1,100 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+
+double a,b,c,aa,ab,ac;
+
+
+cout << "enter the first side: ";
+cin >> a;
+cout << "enter the second side: ";
+cin >> b;
+cout << "enter the third side: ";
+cin >> c;
+
+
+double pi=3.14159;
+cout << setprecision(4);
+{
+aa = acos((pow(c , 2) - pow(a , 2) - pow(b , 2)) / -(2 * a * b)); 
+ab = acos((pow(a , 2) - pow(b, 2) - pow(c , 2)) / -(2 * b * c));
+ac = acos((pow(b , 2) - pow(a , 2) - pow(c , 2)) / -(2 * a * c));
+
+cout << "angle between first side and second side:" << (ac / pi) * 180 << endl;
+cout << "angle between first side and third side: " << (ab / pi) * 180  << endl;
+cout << "angle between third side and second side: "<< (aa / pi) * 180  << endl;
+}
+
+
+
+
+if(b != c && a != c)
+{
+	cout << "kind of  triangle: scalene ";
+}
+else if(a == c && a == b)
+{
+	cout << "kind of triangle: equilateral ";
+}
+else
+{
+	cout << "kind of triangle: isoceles ";
+}
+cout << endl;
+
+
+cout << "perimeter of the triangle: " << a+b+c;
+cout << endl;
+double semi = (a+b+c) / 2;
+cout << "area of the triangle: " << sqrt(semi*(semi-c)*(semi-a)*(semi-b));
+cout << endl;
+
+{
+
+double	longest = c;
+	if(longest < a)
+	{
+		c = longest;
+		longest = a;
+		a = c;
+	}
+	if(longest < b)
+	{
+		c = longest;
+		longest = b;
+		b = c;
+	}
+	
+	if(a*a + b * a > longest * longest)  
+	{
+		cout << "kind of triangle: acute triangle";
+	}
+	else if(a * a + b * a == longest * longest)
+	{
+		cout << "kind of triangle: right triangle";
+	}
+		else
+	{
+		cout << "kind of triangle: obtuse triangle";
+	}
+	
+}
+cout << endl;
+{
+if(a == b && b == c)
+cout << "triangle's apothem: " << a/(2*tan(180/3)) << endl;
+else 
+cout<< "ERROR! INVALID INPUTS"<<endl;
+}
+double circumcenter= (a * b * c) / sqrt((a + b + c) * (-a + b + c) * (a - b + c) * (a + b - c));
+cout << "triangle's circumcenter: " << circumcenter << endl;
+
+
+
+return 0;
+}
