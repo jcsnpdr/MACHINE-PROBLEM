@@ -1,0 +1,146 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	
+	// DECLARATION OF IDENTIFIERS
+	string Name[50];
+	int ind;
+	double IReports[10], GReports[10], Quiz[2];
+	double WPrelim, WFinals, PPrelim, PFinals;
+	double sumIReport, PercI,sumGReport, PercG, sumQ, PercQ, sumE, PercE, GPA[ind];
+	
+	
+	
+	// CODE FOR STUDENT NAME INPUT
+	for (ind = 0; ind <50; ind++)
+	{
+		cout << endl;
+		cout << "enter student same: "; 
+		cin >> Name[ind];
+		cout << "Enter 10 Individual Reports. (100 points): " << endl;
+	//CODE FOR INDIVIDUAL REPORTS INPUT
+			{
+			for (ind= 0; ind <10; ind++)
+				cin >> IReports[ind];
+			
+			sumIReport=0;
+			for (ind=0; ind < 10; ind++)
+				sumIReport = sumIReport + IReports[ind];
+				PercI = (sumIReport/10) * .15;
+/*				cout << PercIndiv[num] << endl;     <-------- TESTING LANG TO */
+			
+	//CODE FOR GROUP REPORTS INPUT
+		cout << "Enter 10 Group Reports. (100 points): " << endl;
+			for (ind=0; ind <10; ind++)
+				cin >> GReports[ind];
+				
+			sumGReport=0;
+			for (ind =0; ind <10; ind++)
+				sumGReport = sumGReport + GReports[ind];
+				PercG = (sumGReport/10) * .25;
+				//cout << PercGroup[num] << endl;        <----- TESTING LANG ULIT
+				
+	// CODE FOR QUIZZES	
+		cout << "Enter scores Quizzes" << endl;
+			for (ind=0; ind <2; ind++)
+				cin >> Quiz[ind];
+				
+			sumQ = 0;
+			for (ind=0; ind <2; ind++)
+				sumQ = sumQ + Quiz[ind];
+				PercQ = (sumQ/2)*.2;
+				//cout << PercQuiz[num];                 <--- TESTING LANG
+			
+	//CODE FOR MAJOR EXAMINATION
+	// Prelims
+		cout << "Enter Written Preliminary  (30): "; cin >> WPrelim;
+		cout << "Enter Practical Preliminary  (70): "; cin >> PPrelim;
+	// Finals
+		cout << "Enter Written Final  (30): "; cin >> WFinals;
+		cout << "Enter Practical Final (70): "; cin >> PFinals;
+		
+		sumE= WPrelim + PPrelim + WFinals + PFinals;
+		PercE = (sumE/2)*.4;
+		// cout << PercMajor[num]; <---------- testing lang will remove later
+		GPA[ind] = PercE + PercQ + PercG + PercI;
+		
+		
+		
+
+		cout << Name[ind] << endl;
+		if (GPA[ind] >= 95.57)
+			cout <<  "GPA: 1.00" << endl;
+		else if (GPA[ind] <= 95.56 || GPA[ind] >= 91.12)
+			cout << "GPA: 1.25" << endl;
+		else if (GPA[ind] <= 91.11 ||GPA[ind]  >= 86.68)
+			cout << "GPA: 1.50" << endl;
+		else if (GPA[ind] <= 86.67 || GPA[ind] >= 82.23)
+			cout << "GPA: 1.75" << endl;
+		else if (GPA[ind] <= 82.22 || GPA[ind] >= 77.79)
+			cout << "GPA: 2.00" << endl;
+		else if (GPA[ind] <= 77.78 || GPA[ind] >= 73.34)
+			cout << "GPA: 2.25" << endl;
+		else if (GPA[ind] <= 73.33 || GPA[ind] >= 68.90)
+			cout << "GPA: 2.50" << endl;
+		else if (GPA[ind] <= 68.89 || GPA[ind] >= 64.45)
+			cout << "GPA: 2.75" << endl;
+		else if (GPA[ind] <= 64.44 || GPA[ind] >= 60)
+			cout << "GPA: 2.30" << endl;
+		else
+			cout << "GPA: 5.00" << endl;
+		
+		
+		
+		
+		if(GPA[ind]<=100&&GPA[ind]>=95.57)
+		cout << "Passed";
+		else if(GPA[ind]<=95.56&&GPA[ind]>=91.12)
+		cout << "Passed";
+		else if(GPA[ind]<=91.11&&GPA[ind]>=86.68)
+		cout << "Passed";
+		else if(GPA[ind]<=86.67&&GPA[ind]>=82.23)
+		cout << "Passed";
+		else if(GPA[ind]<=82.22&&GPA[ind]>=77.79)
+		cout << "Passed";
+		else if(GPA[ind]<=77.78&&GPA[ind]>=73.34)
+	    cout << "Passed";
+		else if(GPA[ind]<=73.33&&GPA[ind]>=68.90)
+		cout << "Passed";
+		else if(GPA[ind]<=68.89&&GPA[ind]>=64.45)
+		cout << "Passed";
+		else if(GPA[ind]<=64.44&&GPA[ind]>=60.00)
+		cout << "Passed";
+		else if (GPA[ind]<=59.99)
+		cout << "failed";
+		
+		}
+	
+	
+	}
+	
+
+	cout << endl;
+	
+	
+	for(int i=0;i<5;i++)
+		{
+		for(int j=0;j<5;j++)
+			{
+			if (GPA[i]>GPA[j])
+				{
+				int x=GPA[i];
+				GPA[i]=GPA[j];
+				GPA[j]=x;
+				}
+			}
+	cout<< Name[ind]<<": "<<"Rank "<<i+1<<endl;
+		}
+			
+	_getch();
+	return 0;
+}
